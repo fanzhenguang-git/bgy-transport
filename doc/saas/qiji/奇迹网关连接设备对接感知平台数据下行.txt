@@ -1,0 +1,37 @@
+一、灯控
+动作和参数：
+开灯：actionName = open
+关灯：actionName = close
+二、信息屏
+动作和参数：
+打开信息屏：actionName = open
+关闭信息屏：actionName = close
+文字叠加显示：actionName = textOverLay 、  bottom = true/false、 content = xxxxx (任意字符)
+信息屏的任务、图片/MP4上传暂时没有接下行
+播放图片和MP4需要，把要上传的图片文件、MP4文件、节目描述json文件，打成tar包上传
+多行文字显示，奇迹网关平台开发中
+
+三、广播
+动作和参数：
+设置音量：actionName = setVolume、volume = 5
+上传MP3：actionName = upload、fileName = xxxx (Minio 服务器上已上传的MP3文件，字母字符)
+播放：actionName = play、fileName = xxxx
+停止播放：actionName = stop
+创建定时任务：actionName = taskCreate、type = 4、fileName = xxxx 、taskName = xxxx (任意字母字符)、repeatTime = 1 、playMode = 1、startTime = 2019-10-11 14:20:35
+(更灵活的应用参考广播接口服务直接调用协议)
+创建每月任务数据示例
+{"Ret":0,"Remark":"OK","Items":[{"ID":6,"Name":"TSTE2","Type":3,"StartTime":"2020-01-15 13:50:31","RepeatTime":1,"PlayMode":1,"Enable":1,"Status":0,"MonthItem":{"MonthsInYear":[1,2,3,4,5,6,7,8,9,10,11,12],"DayInMonth":[1,1]},"Tids":[1],"ProgIds":[4]}]}
+
+删除任务：actionName = taskDelete、taskName = xxxx
+启动定时任务：actionName  = taskManualStart 、taskName = xxxx
+停止定时任务：actionName = taskManualStop、taskName = xxxx
+
+四、摄像头
+动作和参数:
+布防撤防识别场景: actionName = ai_recognition, b = true还在b = false(布防是true,撤防是false)
+摄像头设置预置点: actionName = camera_preset_point, command = 8, presetPointNum = 1
+摄像头PTZ控制: actionName = camera_ptz_control, x = 10.0,y = 10.0,zoom = 1.0
+摄像头拍照: actionName = camera_screenshot
+摄像头控制命令: actionName = camera_control, command = 23, isStop = 0
+
+

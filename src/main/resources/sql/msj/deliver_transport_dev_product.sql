@@ -1,0 +1,4 @@
+INSERT INTO deliver_transport_dev.product (id, create_time, display_name, name, state, type, update_time) VALUES ('7cefc772-bf3e-11e9-a610-0242ac110004', '2019-08-15 09:24:31', '电表', 'DB', 1, 2, '2019-08-15 09:24:31');
+INSERT INTO deliver_transport_dev.product (id, create_time, display_name, name, state, type, update_time) VALUES ('935d5092-bf3e-11e9-a610-0242ac110004', '2019-08-15 09:25:09', '数字温湿度', 'WSD', 1, 2, '2019-08-15 09:25:09');
+INSERT INTO deliver_transport_dev.product (id, create_time, display_name, name, state, type, update_time) VALUES ('dc387fc6-c221-11e9-a610-0242ac110004', '2019-08-19 07:26:25', '智能环动监控设备', 'ZNHDJKSB', 1, 2, '2019-08-19 07:26:25');
+INSERT INTO deliver_transport_dev.product (id, create_time, display_name, name, state, type, update_time) VALUES ('fc89acf9-bf3d-11e9-a610-0242ac110004', '2019-08-15 09:20:56', '网关', 'WG', 1, 1, '2019-08-15 09:20:56');

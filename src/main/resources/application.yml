@@ -1,0 +1,151 @@
+#
+# Copyright © 2019 SunseaIoT
+#
+logging:
+  level:
+    com.sunseaiot.deliver: "${DELIVER_TRANSPORT_LOGGING_LEVEL:TRACE}"
+
+deliver:
+  grpc:
+    # 本地grpc的端口
+    bind-host: "0.0.0.0"
+    bind-port: "${DELIVER_TRANSPORT_RPC_PORT:5050}"
+    apollo:
+      #感知平台的rpc端口
+      enable: "${DELIVER_APOLLO_SERVER_ENABLE:false}"
+      host: "${DELIVER_APOLLO_SERVER_HOST:172.31.16.12}"
+      port: "${DELIVER_APOLLO_SERVER_PORT:5050}"
+
+  redis:
+    server:
+      host: "${DELIVER_TRANSPORT_REDIS_SERVER_HOST:172.31.18.117}"
+      port: "${DELIVER_TRANSPORT_REDIS_SERVER_PORT:6379}"
+    database: "${DELIVER_TRANSPORT_REDIS_DATABASE:5}"
+
+  minio:
+    access-key: "${DELIVER_SERVER_MINIO_ACCESS_KEY:SunseaIoT2018!}"
+    secret-key: "${DELIVER_SERVER_MINIO_SECRET_KEY:SunseaIoT2018!}"
+    server:
+      host: "${DELIVER_SERVER_MINIO_SERVER_HOST:172.31.18.117}"
+      secure: "${DELIVER_SERVER_MINIO_SERVER_SECURE:false}"
+      port: "${DELIVER_SERVER_MINIO_SERVER_PORT:9000}"
+
+  transport:
+    msj:
+      enable: "${DELIVER_TRANSPORT_MSJ_ENABLE:false}"
+      mqtt-broker:
+        url: "${MSJ_MQTT_BROKER:tcp://172.31.16.47:1883}"
+        username: "${MSJ_MQTT_BROKER_USERNAME:username}"
+        password: "${MSJ_MQTT_BROKER_PASSWORD:password}"
+
+    qj:
+      enable: "${DELIVER_TRANSPORT_QJ_ENABLE:false}"
+      mqtt-broker:
+        qjurl: "${QJ_MQTT_BROKER:tcp://47.106.69.128:1884}"
+        qjusername: "${QJ_MQTT_BROKER_USERNAME:rhzn}"
+        qjpassword: "${QJ_MQTT_BROKER_PASSWORD:ioNmfhQtNGwVHHGI}"
+
+    coap:
+      enable: "${DELIVER_TRANSPORT_COAP_ENABLE:true}"
+      port: "5683"
+
+    telcom:
+      enable: "${DELIVER_TRANSPORT_TELCOM_ENABLE:true}"
+      env: "${DELIVER_TRANSPORT_TELCOM_ENV:prod}"
+      hook-host: "${DELIVER_TRANSPORT_TELCOM_HOOK_HOST:https://59.37.56.196:3001}"
+      # 是否启动对应的插件: 电动车(simcom-ebike),嘉德烟感(jade-detector),海曼烟感(haiman-detector),泛海烟感(fh_detector)
+      # 水表(sunsea-watermeter),博大井盖(boda-lid),晨讯井盖(chenxun-lid),欣浩达地磁(xhd-geomagnetism)
+      # 星火云光交锁(xhy-lock),长宜水浸(cy-shuijin),蓝雪路灯(lx-ludeng),金安科技门磁(jakj-mc),万谦垃圾桶(wx_ljt),智能电表(xhb_meter)
+      plugins: "${DELIVER_TRANSPORT_TELCOM_PLUGINS:bd_jinggai,wx_ljt,tl_xfsy,tl_xfmg,xhb_meter,sunsea-watermeter,fh_detector}"
+
+    tcp:
+      enable: "${DELIVER_TRANSPORT_TCP_ENABLE:true}"
+      bind-host: "0.0.0.0"
+      bind-port: "9999"
+      netty:
+        boss-thread-count: 1
+        worker-thread-count: 12
+
+    udp:
+      enable: "${DELIVER_TRANSPORT_UDP_ENABLE:true}"
+      bind-host: "0.0.0.0"
+      bind-port: "12012"
+    gd:
+      enable: "${DELIVER_TRANSPORT_GUIDE_ENABLE:true}"
+      server-ip: "${DELIVER_TRANSPORT_UDP_GD_SERVER_IP:47.92.74.96}"
+      server-port: "${DELIVER_TRANSPORT_UDP_GD_SERVER_PORT:1701}"
+      app-id: "${DELIVER_TRANSPORT_UDP_GD_APP_ID:0102030405060701}"
+      login-name: "${DELIVER_TRANSPORT_UDP_GD_LOGIN_NAME:admin}"
+      login-pwd: "${DELIVER_TRANSPORT_UDP_GD_LOGIN_PWD:123456}"
+      login-type: "${DELIVER_TRANSPORT_UDP_GD_LOGIN_TYPE:1}"
+      token: "${DELIVER_TRANSPORT_UDP_GD_TOKEN:1}"
+      tenant-ecology-name: "${DELIVER_TRANSPORT_UDP_GD_TENANT_ECOLOGY_NAME:智慧生态}"
+
+  product-id:
+    camera: "${DELIVER_PRODUCT_HKCAMERA_ID:1236e263-886a-4d02-b55b-b11ef45511fe}"
+    xs-screen: "${DELIVER_PRODUCT_XSSCREEN_ID:1846e263-886a-4d02-b31b-b11ef45511fe}"
+    lt-broadcast: "${DELIVER_PRODUCT_LTBROADCAST_ID:0a8d43ae-4886-431c-ae89-9560568a298c}"
+    qj-lamp: "${DELIVER_PRODUCT_QJLAMP_ID:4566e789-886a-4d02-b55b-b11ef45511fe}"
+    rj-trash: "${DELIVER_PRODUCT_RJTRASH_ID:72e0015c-cdf1-11e9-b36a-0242ac110004}"
+    aep-hs2sa: "${DELIVER_PRODUCT_AEPHS2SA_ID:10029901}"
+    aep-633ph: "${DELIVER_PRODUCT_AEP633PH_ID:10031414}"
+    aep-smoke-rhwl-sd: "${DELIVER_PRODUCT_AEP_SMOKE_RHWL_SD:10027677}"
+    aep-trash: "${DELIVER_PRODUCT_AEPTRASH_ID:72e0015c-cdf1-11e9-b36a-0242ac110008}"
+    aep-cover: "${DELIVER_PRODUCT_AEPCOVER_ID:72e0015c-cdf1-11e9-b36a-0242ac11111}"
+    # 灯控器LX08-N1AN\LX08-N1AM 设备：ID77e8df4eeea0477e88d4cf7352d61f77
+    aep-light: "${DELIVER_PRODUCT_AEPLX:10033544}"
+
+  master-apikey:
+    aep-hs2sa: "${DELIVER_MASTER_APIKEY_AEP_HS2SA:d2439e54e9a74328af3139cc5af69eb3}"
+    aep-633ph: "${DELIVER_MASTER_APIKEY_AEP_633PH:4b05bbd1542746eb8500dc5e63d21e98}"
+    aep-smoke-rhwl-sd: "${DELIVER_MASTER_APIKEY_AEP_SMOKE_RHWL_SD:9d099382aa0e494b82f71344dbb1579c}"
+    # 灯控器LX08-N1AN\LX08-N1AM 设备：ID77e8df4eeea0477e88d4cf7352d61f77
+    aep-light: "${DELIVER_MASTER_APIKEY_AEPLX:eed7f03cfa33434cb989dfd184cf1f7b}"
+  telcome:
+    product-id:
+      qj-lamp: ""
+  aep:
+    app-key: "${DELIVER_AEP_APPKEY:9rKLWATcMD5}"
+    app-secret: "${DELIVER_AEP_APPSECRET:mjJqHj4Fao}"
+    geo-lwm2m-master-key: "${DELIVER_AEP_GEOLWM2MMASTERKEY:1158dd20110e4215a66dba659904ba4a}"
+    geo-lwm2m-product-id: "${DELIVER_AEP_GEOLWM2MPRODUCTID:10030230}"
+    tink-master-key: "${DELIVER_AEP_TINKMASTERKEY:11e71fa2407344cdb7d941b7aa20bdd2}"
+    tink-product-id: "${DELIVER_AEP_TINKPRODUCTID:10000100}"
+
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: "org.hibernate.dialect.MySQL8Dialect"
+    show-sql: true
+    open-in-view: true
+  datasource:
+    driver-class-name: "com.mysql.cj.jdbc.Driver"
+
+    url: "${SPRING_DATASOURCE_URL:jdbc:mysql://${DELIVER_TRANSPORT_DATASOURCE:${APOLLO_SERVER_MYSQL_SERVER_HOST:172.31.17.87}:${APOLLO_SERVER_MYSQL_SERVER_PORT:3308}/${APOLLO_SERVER_MYSQL_DATABASE:deliver}}?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false}"
+    username: "${DELIVER_TRANSPORT_MYSQL_USERNAME:root}"
+    password: "${DELIVER_TRANSPORT_MYSQL_PASSWORD:root}"
+  #====================kafka========================
+  kafka:
+    enable: "${DELIVER_TRANSPORT_KAFKA_ENABLE:true}"
+    bootstrap-servers: "${DELIVER_TRANSPORT_KAFKA_HOST:172.31.19.88:9092}"
+    #=============== producer  =======================
+    producer:
+      retries: 0
+      # 每次批量发送消息的数量
+      batch-size: 16384
+      buffer-memory: 33554432
+      # 指定消息key和消息体的编解码方式
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    #=============== consumer  =======================
+    consumer:
+      auto-commit-interval: 1S
+      enable-auto-commit: true
+      auto-offset-reset: earliest
+      # 指定消息key和消息体的编解码方式
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      group-id: gd-device-group
+

@@ -1,0 +1,60 @@
+{
+	"type": "commandXixunPlayer",
+	"_id": "28dc5b76-51c9-11e9-9b24-4ccc6a95f6dc",
+	"command": {
+		"_type": "PlayXixunTask",
+		"id": "28dd5a80-51c9-11e9-9b24-4ccc6a95f6dc",
+		"preDownloadURL": "https://m2mled.net/file/download?id=",
+		"notificationURL": "http://192.168.10.187/getJSON",
+		"task": {
+			"_id": "28dd55c6-51c9-11e9-9b24-4ccc6a95f6dc",
+			"name": "",
+			"items": [{
+					"_id": "item1",
+					"_program": {
+						"_id": "28dd2786-51c9-11e9-9b24-4ccc6a95f6dc",
+						"totalSize": 0,
+						"version": 0,
+						"name": "图片/视频/网页分区显示",
+						"width": 1280,
+						"height": 512,
+						"layers": [{
+							"sources": [{
+                      "backgroundColor": "rgba(0,0,0,1)",
+                      "id": "",
+                      "name": "MultiText",
+                      "_type": "MultiLineText",
+                      "speed": 10,
+                      "lineHeight": 1.4,
+                      "center": true,
+                      "html": "<p>在这里显示你的文本br标签为换行</p>",
+                      "playTime": 0,
+                      "timeSpan": 100,
+                      "left": 0,
+                      "top": 0,
+                      "width": 1280,
+                      "height": 512
+                    }
+							],
+							"repeat": true
+						}]
+					},
+					"repeatTimes": 1,
+					"schedules": [{
+						"filterType": "None",
+						"timeType": "Range",
+						"startTime":"00:00",
+						"endTime":"23:59",
+						"dateType": "All",
+						"name": "2019-03-2910: 04: 50"
+					}]
+				}
+
+
+
+			]
+
+
+		}
+	}
+}

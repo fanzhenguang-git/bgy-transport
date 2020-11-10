@@ -1,0 +1,49 @@
+节目采用压缩包tar格式上传
+
+节目文件目录结构定义如下：
+
+├───国庆献礼.tar
+
+│   ├───program.json 节目描述文件
+
+│   ├───media01.mp4		图片/视频资源
+
+│   ├───media02.mp4		图片/视频资源
+
+│   ├───image01.jpg		图片/视频资源
+
+节目JSON描述文件定义如下：
+{
+	"Version": 1,
+	"Programs": [{
+		"Name": "program 1", // 节目名称
+		"Index": 1,      //默认值，勿动
+		"Items": [{      //节目素材项
+			"Index": 1,  //播放序号
+			"Type": "Image",  //素材类型
+			"Image": {        //素材子集
+				"Time": 10,   //定格时长(S)
+				"File": "1.jpg" //素材名称
+			}
+		}, {
+			"Index": 2,
+			"Type": "Image",
+			"Image": {
+				"Time": 10,
+				"File": "2.jpg"
+			}
+		}, {
+			"Index": 3,
+			"Type": "Video",
+			"Video": {
+			    "Repeat":1 //默认值,勿动
+				"File": "1.mp4"
+			}
+		}]
+	}]
+}
+
+
+
+
+

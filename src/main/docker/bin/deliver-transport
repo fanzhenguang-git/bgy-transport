@@ -1,0 +1,26 @@
+#!/bin/bash
+
+deliverTransportHome=$(dirname $(dirname $(readlink -f $0)))
+
+jarFile=${deliverTransportHome}/lib/deliver-transport-*-boot.jar
+
+installOptions=(
+)
+
+runtimeOptions=(
+)
+
+# 为了使运行时"user.dir"和lib的相对路径和IDE中运行时相同
+cd ${deliverTransportHome}
+
+case "$1" in
+    install)
+        exec java -cp ${jarFile} ${installOptions[@]}
+        ;;
+    "")
+        exec java ${runtimeOptions[@]} -jar ${jarFile}
+        ;;
+    *)
+        exec $@
+        ;;
+esac
