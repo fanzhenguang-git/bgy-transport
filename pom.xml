@@ -3,21 +3,21 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.sunseaiot.apollo</groupId>
-        <artifactId>deliver-parent</artifactId>
+        <groupId>com.sunseaiot.bgy</groupId>
+        <artifactId>bgy-parent</artifactId>
         <version>2.0.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.sunseaiot.deliver</groupId>
-    <artifactId>deliver-transport</artifactId>
+    <artifactId>bgy-transport</artifactId>
     <packaging>jar</packaging>
     <version>2.0.0-SNAPSHOT</version>
 
-    <name>deliver transport server</name>
-    <description>deliver transport server</description>
+    <name>bgy transport server</name>
+    <description>bgy transport server</description>
 
     <properties>
-        <docker.repository>deliver</docker.repository>
+        <docker.repository>bgy</docker.repository>
+        <bgy-rpc.version>2.0.0-SNAPSHOT</bgy-rpc.version>
     </properties>
 
     <dependencies>
@@ -96,8 +96,9 @@
 
         <!-- grpc -->
         <dependency>
-            <groupId>com.sunseaiot.deliver</groupId>
-            <artifactId>deliver-rpc</artifactId>
+            <groupId>com.sunseaiot.bgy</groupId>
+            <artifactId>bgy-rpc</artifactId>
+            <version>${bgy-rpc.version}</version>
         </dependency>
 
         <!-- minio -->
@@ -256,7 +257,6 @@
             <systemPath>${project.basedir}/lib/jar/ag-sdk-biz-11818.tar.gz-20191220.175109-SNAPSHOT.jar</systemPath>
         </dependency>
     </dependencies>
-
 
     <build>
         <resources>
